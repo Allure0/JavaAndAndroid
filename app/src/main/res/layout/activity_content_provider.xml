@@ -3,28 +3,30 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
     <Button
-        android:id="@+id/btn_bundle"
-        android:text="进程通信Bundle"
+        android:onClick="insert"
+        android:text="insert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-   <Button
-       android:id="@+id/btn_messenger"
-       android:text="进程通信Messenger"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content" />
-
     <Button
-        android:id="@+id/btn_aidl"
-        android:text="进程通信AIDL"
+        android:onClick="delete"
+        android:text="delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btn_content_provider"
-        android:text="ContentProvider"
+        android:onClick="query"
+        android:text="query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="update"
+        android:text="update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/displayTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>

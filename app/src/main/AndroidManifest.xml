@@ -16,7 +16,45 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DrawableActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".DrawableActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".interprocesscommunication.messenger.MessengerActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".interprocesscommunication.ProcessActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".interprocesscommunication.ProcessActivity2"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".interprocesscommunication.aidl.AIDLActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".interprocesscommunication.contentprovider.ContentProviderActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <!--Messenger服务-->
+        <service
+            android:name=".interprocesscommunication.messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <!--AIDL服务-->
+
+        <service android:name=".interprocesscommunication.aidl.AIDLService">
+            <intent-filter>
+                <action android:name="com.allure.study.aidl" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <!--ContentProvider-->
+        <provider
+            android:authorities="com.allure.study.interprocesscommunication.contentprovider"
+            android:name=".interprocesscommunication.contentprovider.TestContentProvider" />
     </application>
 
 </manifest>

@@ -26,15 +26,31 @@ public class DrawableActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawable);
+        initConstants();
         xdpi = getResources().getDisplayMetrics().xdpi;
         ydpi = getResources().getDisplayMetrics().ydpi;
         Log.e("密度值", "xdpi: " + xdpi + "--" + "ydpi: " + ydpi + "");
         imageView = (ImageView) findViewById(R.id.image);
 
 //        imageView.setImageResource(R.drawable.biggyy3500);
+        imageView.setImageDrawable( ResourceUtils.getScaledDrawable(getResources(),R.drawable.biggyy3500));
 
 
     }
 
+    /**
+     * 初始化设备不变常量 以便于图片等使用
+     */
+    private void initConstants() {
+        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
 
+        Constants.IS_DEBUG = BuildConfig.DEBUG;
+        Constants.DEBUG_TIME = BuildConfig.DEBUG;
+        Constants.DISPLAY_WIDTH = displayMetrics.widthPixels;
+        Constants.DISPLAY_HEIGHT = displayMetrics.heightPixels;
+        Constants.DISPLAY_DENSITY = displayMetrics.density;
+        Constants.DISPLAY_DPI_EXACT = (displayMetrics.xdpi + displayMetrics.ydpi) / 2;
+    }
 }
